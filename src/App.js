@@ -1,8 +1,19 @@
 import { FilterPanel } from 'components/FilterPanel';
 import { JobList } from 'components/JobList';
 import { TheHeader } from 'components/TheHeader';
+import {useDispatch} from "react-redux";
+import {useEffect} from "react";
+
+import data from './mock/data.json'
+import {addPositions} from "./store/positions/positions-actions";
 
 function App() {
+    const dispatch = useDispatch()
+
+    useEffect(()=> {
+        dispatch(addPositions(data))
+    }, [])
+
   return (
     <>
      <TheHeader />
